@@ -19,7 +19,10 @@ export default function Home() {
                       answerOptions={questions[currentQuestion].answerOptions}
                       onClick={handleAnswer}
                       correctAnswer={correctAnswer}
-                      nextQuestion={nextQuestion}/>
+                      nextQuestion={nextQuestion}
+                      totalQuestions={questions.length}
+                      questionNumber={currentQuestion + 1}
+        />
             : <QuizResult correctAnswers={correctAnswers} questionsNumber={questions.length}/>
 )
 }

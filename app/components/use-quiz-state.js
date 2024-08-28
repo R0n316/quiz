@@ -56,6 +56,6 @@ export default function UseQuizState() {
         questions,
         handleAnswer,
         correctAnswer,
-        nextQuestion
+        nextQuestion,
     }
 }
