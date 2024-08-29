@@ -4,6 +4,7 @@ export default function UseQuizState() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(undefined);
+    const [selectedAnswer, setSelectedAnswer] = useState(undefined);
     const questions = [
         {
             questionText: 'Question 1',
@@ -34,8 +35,8 @@ export default function UseQuizState() {
         }
     ]
 
-    const handleAnswer = (isCorrect) => {
-        if(isCorrect) {
+    const handleAnswer = (answer) => {
+        if(answer.isCorrect) {
             setCorrectAnswers(correctAnswers + 1);
             setCorrectAnswer(undefined);
             setCurrentQuestion(currentQuestion + 1);
@@ -44,11 +45,14 @@ export default function UseQuizState() {
                 .find(option => option.isCorrect)?.answerText
             );
         }
+        setSelectedAnswer(answer);
     }
+
 
     const nextQuestion = () => {
         setCorrectAnswer(undefined);
         setCurrentQuestion(currentQuestion + 1);
+        setSelectedAnswer(undefined);
     }
     return {
         currentQuestion,
@@ -57,5 +61,6 @@ export default function UseQuizState() {
         handleAnswer,
         correctAnswer,
         nextQuestion,
+        selectedAnswer
     }
 }

@@ -11,7 +11,8 @@ export default function Home() {
         questions,
         handleAnswer,
         correctAnswer,
-        nextQuestion
+        nextQuestion,
+        selectedAnswer
     } = UseQuizState();
 
     return ((currentQuestion < questions.length) ?
@@ -22,6 +23,7 @@ export default function Home() {
                       nextQuestion={nextQuestion}
                       totalQuestions={questions.length}
                       questionNumber={currentQuestion + 1}
+                      selectedAnswer={selectedAnswer}
         />
             : <QuizResult correctAnswers={correctAnswers} questionsNumber={questions.length}/>
 )
