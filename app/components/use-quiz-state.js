@@ -8,30 +8,30 @@ export default function UseQuizState() {
     const [completionTime, setCompletionTime] = useState(Date.now);
     const questions = [
         {
-            questionText: 'Question 1',
+            questionText: 'Which mountain range separates Europe and Asia?',
             answerOptions: [
-                {id:1,answerText: 'answer 1', isCorrect: true},
-                {id:2,answerText: 'answer 2', isCorrect: false},
-                {id:3,answerText: 'answer 3', isCorrect: false},
-                {id:4,answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'Rocky Mountains', isCorrect: false},
+                {id:2,answerText: 'Alps', isCorrect: false},
+                {id:3,answerText: 'Andes', isCorrect: false},
+                {id:4,answerText: 'Urals', isCorrect: true}
             ]
         },
         {
-            questionText: 'Question 2',
+            questionText: 'Which country is known as the "Land of the Rising Sun"?',
             answerOptions: [
-                {id:1,answerText: 'answer 1', isCorrect: false},
-                {id:2,answerText: 'answer 2', isCorrect: true},
-                {id:3,answerText: 'answer 3', isCorrect: false},
-                {id:4,answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'China', isCorrect: false},
+                {id:2,answerText: 'South Korea', isCorrect: false},
+                {id:3,answerText: 'Japan', isCorrect: true},
+                {id:4,answerText: 'Thailand', isCorrect: false}
             ]
         },
         {
-            questionText: 'Question 3',
+            questionText: 'Which river is the longest in the world?',
             answerOptions: [
-                {id:1,answerText: 'answer 1', isCorrect: false},
-                {id:2,answerText: 'answer 2', isCorrect: false},
-                {id:3,answerText: 'answer 3', isCorrect: true},
-                {id:4,answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'Nile', isCorrect: true},
+                {id:2,answerText: 'Amazon', isCorrect: false},
+                {id:3,answerText: 'Mississippi', isCorrect: false},
+                {id:4,answerText: 'Yangtze', isCorrect: false}
             ]
         }
     ]
