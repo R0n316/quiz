@@ -10,28 +10,28 @@ export default function UseQuizState() {
         {
             questionText: 'Question 1',
             answerOptions: [
-                {answerText: 'answer 1', isCorrect: true},
-                {answerText: 'answer 2', isCorrect: false},
-                {answerText: 'answer 3', isCorrect: false},
-                {answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'answer 1', isCorrect: true},
+                {id:2,answerText: 'answer 2', isCorrect: false},
+                {id:3,answerText: 'answer 3', isCorrect: false},
+                {id:4,answerText: 'answer 4', isCorrect: false}
             ]
         },
         {
             questionText: 'Question 2',
             answerOptions: [
-                {answerText: 'answer 1', isCorrect: false},
-                {answerText: 'answer 2', isCorrect: true},
-                {answerText: 'answer 3', isCorrect: false},
-                {answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'answer 1', isCorrect: false},
+                {id:2,answerText: 'answer 2', isCorrect: true},
+                {id:3,answerText: 'answer 3', isCorrect: false},
+                {id:4,answerText: 'answer 4', isCorrect: false}
             ]
         },
         {
             questionText: 'Question 3',
             answerOptions: [
-                {answerText: 'answer 1', isCorrect: false},
-                {answerText: 'answer 2', isCorrect: false},
-                {answerText: 'answer 3', isCorrect: true},
-                {answerText: 'answer 4', isCorrect: false}
+                {id:1,answerText: 'answer 1', isCorrect: false},
+                {id:2,answerText: 'answer 2', isCorrect: false},
+                {id:3,answerText: 'answer 3', isCorrect: true},
+                {id:4,answerText: 'answer 4', isCorrect: false}
             ]
         }
     ]
@@ -44,21 +44,21 @@ export default function UseQuizState() {
             if(answer.isCorrect) {
                 setCorrectAnswers(correctAnswers + 1);
                 setCorrectAnswer(undefined);
-                setCurrentQuestion(currentQuestion + 1);
-                setSelectedAnswer(undefined);
+                setSelectedAnswer(answer.id)
+                setTimeout(() => {
+                    setCurrentQuestion(currentQuestion + 1);
+                    setSelectedAnswer(undefined);
+                }, 700)
             } else {
                 setCorrectAnswer(questions[currentQuestion].answerOptions
                     .find(option => option.isCorrect)?.answerText
                 );
-                setSelectedAnswer(answer);
+                setSelectedAnswer(answer.id);
             }
         }
     }
 
     const nextQuestion = () => {
-        if (currentQuestion === questions.length - 1) {
-            calculateCompletionTime();
-        }
         setCorrectAnswer(undefined);
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(undefined);
