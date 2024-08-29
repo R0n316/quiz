@@ -12,7 +12,8 @@ export default function Home() {
         handleAnswer,
         correctAnswer,
         nextQuestion,
-        selectedAnswer
+        selectedAnswer,
+        formattedCompetitionTime
     } = UseQuizState();
 
     return ((currentQuestion < questions.length) ?
@@ -25,6 +26,9 @@ export default function Home() {
                       questionNumber={currentQuestion + 1}
                       selectedAnswer={selectedAnswer}
         />
-            : <QuizResult correctAnswers={correctAnswers} questionsNumber={questions.length}/>
+            : <QuizResult correctAnswers={correctAnswers}
+                          questionsNumber={questions.length}
+                          completionTime={formattedCompetitionTime}
+            />
 )
 }
